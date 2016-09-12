@@ -3,6 +3,8 @@ import VueResource from 'vue-resource'
 import VueValidator from 'vue-validator'
 import RoomService from '../services/room'
 
+import DataTable from './components/datatable.vue';
+
 Vue.use(VueResource)
 Vue.use(VueValidator)
 
@@ -10,6 +12,8 @@ var token = $('meta[name="csrf-token"]').attr('content');
 
 new Vue({
     el: '#RoomsController',
+
+    components: {DataTable},
 
     data: function () {
         return {
@@ -32,6 +36,9 @@ new Vue({
             modalTitle: '',
             errors: {},
             isError: false,
+            oTable: {
+                type: Object
+            }
         }
     },
 

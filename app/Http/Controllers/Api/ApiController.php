@@ -26,7 +26,7 @@ abstract class ApiController extends AbstractController
 
     public function index()
     {
-    	
+        
     }
 
     public function edit($id)

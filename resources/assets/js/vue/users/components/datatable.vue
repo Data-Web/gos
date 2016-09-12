@@ -94,7 +94,7 @@
                     createdRow: function (row, data, index) {
                         $('td', row).eq(0).css('display', 'none');
                         var actions = data.actions;
-                        
+
                         if (! actions || actions.length < 1) {
                             return ;
                         }

@@ -162,7 +162,5 @@ class UsersController extends ApiController
             'password',
             'password_confirmation'
         );
-        
-        //$entity = \Auth::user();
     }
 }

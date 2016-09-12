@@ -10,7 +10,7 @@ Vue.use(VueResource)
 Vue.use(VueValidator)
 
 Vue.http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('content');
-//Vue.http.headers.common['Content-Type'] = 'multipart/form-data';
+
 Vue.http.options.emulateJSON = true;
 new Vue({
     el: '#UsersController',

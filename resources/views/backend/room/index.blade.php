@@ -1,6 +1,12 @@
 @extends('layouts.backend')
 
+@push('prestyles')
+    {{ HTML::style('vendor/datatables-bs/css/dataTables.bootstrap.min.css') }}
+@endpush
+
 @push('prescripts')
+    {{ HTML::script("vendor/datatables/js/jquery.dataTables.min.js") }}
+    {{ HTML::script("vendor/datatables-bs/js/dataTables.bootstrap.min.js") }}
     {{ HTML::script("assets/vue/rooms/room.js") }}
 @endpush
 
@@ -12,7 +18,11 @@
 
     <div id="content">
         <div class="container-fluid">
-            <h3>Quản lý phòng ban</h3>
+            <h3>Quản lý phòng ban
+                <a href="#newRoom" v-on:click="create" role="button" data-toggle="modal" class="btn btn-success pull-right">
+                    <i class="fa fa-plus"></i> Thêm mới phòng ban
+                </a>
+            </h3>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="widget">
@@ -26,48 +36,11 @@
                         
                         <div id="providerList">
                             
-                            @include('backend.room._tool')
+                            
 
                             <div class="widget-content">
                                 <div class="table-responsive">
-                                    <table class="table table-condensed table-default table-bordered table-hover" id="table-index">
-                                        <thead>
-                                            <tr class="active">
-                                                <th class="text-center">Mã</th>
-                                                <th>Tên phòng</th>
-                                                <th>Trưởng phòng</th>
-                                                <th>Số nhân viên</th>
-                                                <th>Ngày thành lập</th>
-                                                <th width="100">Thao tác</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr v-for="room in rooms">
-                                                <td>@{{ room.code }}</td>
-                                                <td>@{{ room.name }}</td>
-                                                <td>@{{ room.manager }}</td>
-                                                <td>@{{ room.member }}</td>
-                                                <td>@{{ room.founding }}</td>
-                                                
-                                                <td class="text-center">
-                                                    <a href="#newRoom"
-                                                        title="Sửa"
-                                                        class="btn-icon label-edit"
-                                                        data-toggle="modal"
-                                                        v-on="click: getUserProfile()">
-                                                        <span class="glyphicon glyphicon-edit"></span>
-                                                    </a>
-
-                                                    <a href="javascript:void(0);" title="Xóa" 
-                                                        class="btn-icon label-delete"
-                                                        v-on:click="destroy(room.id, room)">
-                                                        <span class="glyphicon glyphicon-remove-circle"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <data-table></data-table>
                                 </div>
                             </div>
                         </div>

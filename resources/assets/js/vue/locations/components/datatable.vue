@@ -1,7 +1,7 @@
 <template>
     <div class="widget-content">
         <div class="table-responsive">
-            <table class="table table-condensed table-default table-bordered table-hover" id="table-index" width="100%">
+            <table class="table table-condensed table-default table-bordered table-hover" id="table-index">
                 <thead>
                     <tr>
                         <th style="display:none">ID</th>
